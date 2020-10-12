@@ -1,0 +1,49 @@
+dn: dc=company,dc=com
+objectClass: top
+objectClass: domain
+objectClass: extensibleObject
+dc: company
+o: YourCompany
+
+dn: ou=users,dc=company,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=company,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+dn: uid=sadmin,ou=users,dc=company,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Super Admin
+sn: Admin
+givenName: Super
+mail: admin@company.com
+uid: sadmin
+userPassword: $2a$10$dV8tRBZDfx.6XZTbSVvkROg4UO.oHSyxD6LTp9YRMalB1IngFjGte
+
+dn: uid=jsmith,ou=users,dc=company,dc=com
+objectClass: inetOrgPerson
+cn: John Smith
+sn: Smith
+givenName: John
+mail: jsmith@company.com
+uid: jsmith
+userPassword: $2a$10$dV8tRBZDfx.6XZTbSVvkROg4UO.oHSyxD6LTp9YRMalB1IngFjGte
+
+dn: cn=admin,ou=groups,dc=company,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+cn: admin
+uniqueMember: uid=sadmin,ou=users,dc=company,dc=com
+
+dn: cn=user,ou=groups,dc=company,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+cn: user
+uniqueMember: uid=sadmin,ou=users,dc=company,dc=com
+uniqueMember: uid=jsmith,ou=users,dc=company,dc=com
